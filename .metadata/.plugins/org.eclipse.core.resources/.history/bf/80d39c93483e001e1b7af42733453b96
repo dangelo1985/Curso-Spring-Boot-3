@@ -1,0 +1,43 @@
+package med.voll.core.mapper;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import med.voll.api.dto.MedicoDTO;
+import med.voll.api.entity.Endereco;
+import med.voll.api.entity.Medico;
+
+@Component
+public class MedicoMapper {
+	
+	@Autowired
+	private ModelMapper mapper;
+	 
+	 
+	public Medico getMedicoModel(MedicoDTO medicoDTO) {
+	      Medico medico = new Medico();
+	      Endereco endereco = new Endereco();
+	      
+	      medico.setNome(medicoDTO.nome());
+	      medico.setEmail(medicoDTO.email());
+	      medico.setCrm(medicoDTO.crm());
+	      medico.setTelefone(medicoDTO.telefone());
+	      medico.setEspecialidade(medicoDTO.especialidade());
+	      medico.setEndereco(getEndereco(endereco, medicoDTO));
+	      
+	      return medico;
+	}
+	public Endereco getEndereco(Endereco endereco, MedicoDTO medicoDTO) {
+		endereco.setLogradouro(medicoDTO.endereco().logradouro());
+		endereco.setNumero(medicoDTO.endereco().numero());
+		endereco.setBairro(medicoDTO.endereco().bairro());
+		endereco.setComplemento(medicoDTO.endereco().complemento());
+		endereco.setCep(medicoDTO.endereco().cep());
+		endereco.setCidade(medicoDTO.endereco().cidade());
+		endereco.setUf(medicoDTO.endereco().uf());
+		
+		return endereco;
+	}
+
+}

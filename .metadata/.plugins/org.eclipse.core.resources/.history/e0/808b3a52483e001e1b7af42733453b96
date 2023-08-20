@@ -1,0 +1,5 @@
+package med.voll.core.mapper;
+
+public class EnderecoMapper {
+
+}

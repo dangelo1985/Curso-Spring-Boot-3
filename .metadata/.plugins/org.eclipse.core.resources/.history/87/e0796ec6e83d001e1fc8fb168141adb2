@@ -1,0 +1,30 @@
+package med.voll.api.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import med.voll.api.entity.Medico;
+import med.voll.api.repository.MedicoRepository;
+
+@Service
+public class MedicoService {
+	
+	@Autowired
+	private MedicoRepository repository;
+	
+	@Autowired
+	private Medico medico;
+ 	
+	public boolean salvar(Medico medico) {
+		
+		try {
+			repository.save(medico);
+			return true;
+		} catch (Exception e) {
+			System.out.println("Erro ao salvar medico" + e.getMessage());
+		}
+		
+		return false;
+	}
+
+}

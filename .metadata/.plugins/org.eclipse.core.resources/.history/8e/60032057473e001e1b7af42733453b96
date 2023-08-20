@@ -1,0 +1,5 @@
+package med.voll.core.service;
+
+public class PacienteService {
+
+}

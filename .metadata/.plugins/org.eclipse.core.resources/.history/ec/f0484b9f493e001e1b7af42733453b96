@@ -1,0 +1,15 @@
+package med.voll.core.mapper;
+
+import org.springframework.stereotype.Component;
+
+import med.voll.api.dto.MedicoDTO;
+import med.voll.api.entity.Endereco;
+
+@Component
+public class EnderecoMapper {
+	
+	//@Autowired
+	//private ModelMapper mapper;
+	
+	
+}

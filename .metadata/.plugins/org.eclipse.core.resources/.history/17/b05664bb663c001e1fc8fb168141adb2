@@ -1,0 +1,5 @@
+package med.voll.api.enuns;
+
+public enum Especialidade {
+
+}

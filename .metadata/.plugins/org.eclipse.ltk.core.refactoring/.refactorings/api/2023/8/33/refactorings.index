@@ -1,0 +1,16 @@
+1692212493151	Rename type 'Endereco'
+1692231633070	Rename package 'med.voll.api.record'
+1692231653688	Rename type 'EnderecoRecord'
+1692231664598	Rename type 'MedicoRecord'
+1692338670717	Rename type 'Especialidade'
+1692374311893	Delete element
+1692418186846	Move compilation unit
+1692418260004	Rename package 'med.voll.api.service'
+1692418276273	Rename package 'med.voll.api.repository'
+1692418291620	Rename package 'med.voll.api.mapper'
+1692418470605	Delete element
+1692419642121	Delete element
+1692420346718	Delete element
+1692420435321	Delete element
+1692420651524	Rename resource 'V4__alter-table-pacientes-add-column-telefone.sql'
+1692420717324	Delete element
