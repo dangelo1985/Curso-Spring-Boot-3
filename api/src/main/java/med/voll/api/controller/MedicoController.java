@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,15 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 import med.voll.api.dto.DadosMedico;
 import med.voll.api.dto.MedicoDTO;
-import med.voll.core.mapper.MedicoMapper;
+import med.voll.api.dto.MedicoDTOEditar;
 import med.voll.core.service.MedicoService;
 
 @RestController
 @RequestMapping("/medicos")
 public class MedicoController {
 	
-	@Autowired
-	private MedicoMapper mapper;
+	/*
+	 * @Autowired private MedicoMapper mapper;
+	 */
 	
 	@Autowired
 	private MedicoService service;
@@ -29,7 +33,7 @@ public class MedicoController {
 	@PostMapping
 	@Transactional
 	public void cadastrar(@RequestBody @Valid MedicoDTO dto) {
-		service.salvar(mapper.getMedicoModel(dto));
+		service.salvar(dto);
 	}
 	
 	@GetMapping
@@ -37,6 +41,20 @@ public class MedicoController {
 		
 		return service.listar(paginacao);
 		
+	}
+	
+	@PutMapping
+	@Transactional
+	public void editar(@RequestBody @Valid MedicoDTOEditar dto){
+		
+		service.editar(dto);
+	}
+	
+	@DeleteMapping("/{id}")
+	@Transactional
+	public void editar(@PathVariable Long id){
+		
+		service.excluir(id);
 	}
 
 }

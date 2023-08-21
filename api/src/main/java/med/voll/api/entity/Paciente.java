@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import med.voll.api.dto.PacienteDTO;
+import med.voll.api.dto.PacienteDTOEditar;
 
 @Table(name = "pacientes")
 @Entity(name = "Paciente")
@@ -28,11 +29,13 @@ public class Paciente {
 	private String email;
 	private String cpf;
 	private String telefone;
+	private Boolean ativo;
 	
 	@Embedded
 	private Endereco endereco;
 	
 	public Paciente(PacienteDTO dto) {
+		ativo = true;
 		this.nome = dto.nome();
 		this.email = dto.email();
 		this.cpf = dto.cpf();
@@ -40,4 +43,24 @@ public class Paciente {
 		this.telefone = dto.telefone();
 		
 	}
+	
+	public void atualizarPaciente(PacienteDTOEditar dto) {
+	
+		if (dto.nome() != null) {
+			this.nome = dto.nome();
+		}
+		if (dto.telefone() != null) {
+			this.telefone = dto.telefone();
+		}
+		if (dto.endereco() != null) {
+			this.endereco = new Endereco(dto.endereco());
+		}
+
+	}
+
+	public void excluir(Long id) {
+		ativo = false;
+		
+	}
+	
 }

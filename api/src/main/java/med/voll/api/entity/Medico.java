@@ -14,6 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import med.voll.api.dto.MedicoDTO;
+import med.voll.api.dto.MedicoDTOEditar;
 import med.voll.api.enuns.EspecialidadeEnun;
 
 @Table(name = "medicos")
@@ -32,6 +33,7 @@ public class Medico {
 	private String email;
 	private String crm;
 	private String telefone;
+	private Boolean ativo;
 	
 	@Enumerated(EnumType.STRING)
 	private EspecialidadeEnun especialidade;
@@ -46,7 +48,24 @@ public class Medico {
 		this.especialidade = dto.especialidade();
 		this.endereco = new Endereco(dto.endereco());
 		this.telefone = dto.telefone();
+		this.ativo = true;
 		
+	}
+	public void atualizarMedico(MedicoDTOEditar dto) {
+		
+		if (dto.nome() != null) {
+			this.nome = dto.nome();
+		}
+		if (dto.telefone() != null) {
+			this.telefone = dto.telefone();
+		}
+		if (dto.endereco() != null) {
+			this.endereco = new Endereco(dto.endereco());
+		}
+
+	}
+	public void excluir(Long id) {
+		ativo = false;
 	}
 	
 

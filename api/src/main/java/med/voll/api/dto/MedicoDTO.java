@@ -30,5 +30,6 @@ public record MedicoDTO(
 		@NotNull
 		@Valid
 		EnderecoDTO endereco) {
+	
 
 }

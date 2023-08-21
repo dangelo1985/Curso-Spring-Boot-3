@@ -31,5 +31,30 @@ public class Endereco {
 		this.numero = dto.numero();
 		this.complemento = dto.complemento();
 	}
+	
+	public void atualizarEndereco(EnderecoDTO dto) {
+		if (dto.logradouro() != null) {
+			this.logradouro = dto.logradouro();
+		}
+		if (dto.numero() != null) {
+			this.numero = dto.numero();
+		}
+		if (dto.bairro() != null) {
+			this.bairro = dto.bairro();
+		}
+		if (dto.complemento() != null) {
+			this.complemento = dto.complemento();
+		}
+		if (dto.cep() != null) {
+			this.cep = dto.cep();
+		}
+		if (dto.cidade() != null) {
+			this.cidade = dto.cidade();
+		}
+		if (dto.uf() != null) {
+			this.uf = dto.uf();
+		}
+
+	}
 
 }
